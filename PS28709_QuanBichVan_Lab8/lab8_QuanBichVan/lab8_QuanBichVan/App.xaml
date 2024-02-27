@@ -1,0 +1,14 @@
+﻿<Application x:Class="lab8_QuanBichVan.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:lab8_QuanBichVan"
+             StartupUri="bai1.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="RadioMenuItemStyle.xaml"/>
+                <!-- Nếu bạn có thêm các Resource Dictionary khác, hãy thêm chúng vào đây -->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

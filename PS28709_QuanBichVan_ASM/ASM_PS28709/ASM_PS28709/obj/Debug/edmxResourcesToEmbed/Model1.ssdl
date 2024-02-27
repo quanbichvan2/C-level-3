@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AssignmentC3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AssignmentC3.dbo.backups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="backups">
+    <Key>
+      <PropertyRef Name="MSSV" />
+      <PropertyRef Name="HoTen" />
+    </Key>
+    <Property Name="MSSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="SoDT" Type="varchar" MaxLength="15" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Hinh" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="grades">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="TiengAnh" Type="float" />
+    <Property Name="TinHoc" Type="float" />
+    <Property Name="GDTD" Type="float" />
+  </EntityType>
+  <EntityType Name="students">
+    <Key>
+      <PropertyRef Name="MSSV" />
+    </Key>
+    <Property Name="MSSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="SoDT" Type="varchar" MaxLength="15" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Hinh" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="roles" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__grades__MSSV__3E52440B">
+    <End Role="students" Type="Self.students" Multiplicity="0..1" />
+    <End Role="grades" Type="Self.grades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="MSSV" />
+      </Principal>
+      <Dependent Role="grades">
+        <PropertyRef Name="MSSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AssignmentC3ModelStoreContainer">
+    <EntitySet Name="grades" EntityType="Self.grades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="backups" EntityType="Self.backups" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [backups].[MSSV] AS [MSSV], 
+    [backups].[HoTen] AS [HoTen], 
+    [backups].[Email] AS [Email], 
+    [backups].[SoDT] AS [SoDT], 
+    [backups].[GioiTinh] AS [GioiTinh], 
+    [backups].[DiaChi] AS [DiaChi], 
+    [backups].[Hinh] AS [Hinh]
+    FROM [dbo].[backups] AS [backups]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__grades__MSSV__3E52440B" Association="Self.FK__grades__MSSV__3E52440B">
+      <End Role="students" EntitySet="students" />
+      <End Role="grades" EntitySet="grades" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

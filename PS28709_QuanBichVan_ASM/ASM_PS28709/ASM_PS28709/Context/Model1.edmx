@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AssignmentC3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AssignmentC3.dbo.backups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="backups">
+          <Key>
+            <PropertyRef Name="MSSV" />
+            <PropertyRef Name="HoTen" />
+          </Key>
+          <Property Name="MSSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="SoDT" Type="varchar" MaxLength="15" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Hinh" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="grades">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MSSV" Type="nvarchar" MaxLength="50" />
+          <Property Name="TiengAnh" Type="float" />
+          <Property Name="TinHoc" Type="float" />
+          <Property Name="GDTD" Type="float" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="MSSV" />
+          </Key>
+          <Property Name="MSSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="SoDT" Type="varchar" MaxLength="15" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Hinh" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="roles" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__grades__MSSV__3E52440B">
+          <End Role="students" Type="Self.students" Multiplicity="0..1" />
+          <End Role="grades" Type="Self.grades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="MSSV" />
+            </Principal>
+            <Dependent Role="grades">
+              <PropertyRef Name="MSSV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AssignmentC3ModelStoreContainer">
+          <EntitySet Name="grades" EntityType="Self.grades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="backups" EntityType="Self.backups" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [backups].[MSSV] AS [MSSV], 
+    [backups].[HoTen] AS [HoTen], 
+    [backups].[Email] AS [Email], 
+    [backups].[SoDT] AS [SoDT], 
+    [backups].[GioiTinh] AS [GioiTinh], 
+    [backups].[DiaChi] AS [DiaChi], 
+    [backups].[Hinh] AS [Hinh]
+    FROM [dbo].[backups] AS [backups]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__grades__MSSV__3E52440B" Association="Self.FK__grades__MSSV__3E52440B">
+            <End Role="students" EntitySet="students" />
+            <End Role="grades" EntitySet="grades" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AssignmentC3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="grade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TiengAnh" Type="Double" />
+          <Property Name="TinHoc" Type="Double" />
+          <Property Name="GDTD" Type="Double" />
+          <NavigationProperty Name="student" Relationship="Self.FK__grades__MSSV__3E52440B" FromRole="grades" ToRole="students" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="MSSV" />
+          </Key>
+          <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SoDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Hinh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="grades" Relationship="Self.FK__grades__MSSV__3E52440B" FromRole="students" ToRole="grades" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="backup">
+          <Key>
+            <PropertyRef Name="MSSV" />
+            <PropertyRef Name="HoTen" />
+          </Key>
+          <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SoDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Hinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__grades__MSSV__3E52440B">
+          <End Role="students" Type="Self.student" Multiplicity="0..1" />
+          <End Role="grades" Type="Self.grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="students">
+              <PropertyRef Name="MSSV" />
+            </Principal>
+            <Dependent Role="grades">
+              <PropertyRef Name="MSSV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AssignmentC3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="grades" EntityType="Self.grade" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="backups" EntityType="Self.backup" />
+          <AssociationSet Name="FK__grades__MSSV__3E52440B" Association="Self.FK__grades__MSSV__3E52440B">
+            <End Role="students" EntitySet="students" />
+            <End Role="grades" EntitySet="grades" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AssignmentC3ModelStoreContainer" CdmEntityContainer="AssignmentC3Entities">
+          <EntitySetMapping Name="grades">
+            <EntityTypeMapping TypeName="AssignmentC3Model.grade">
+              <MappingFragment StoreEntitySet="grades">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+                <ScalarProperty Name="TiengAnh" ColumnName="TiengAnh" />
+                <ScalarProperty Name="TinHoc" ColumnName="TinHoc" />
+                <ScalarProperty Name="GDTD" ColumnName="GDTD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="AssignmentC3Model.student">
+              <MappingFragment StoreEntitySet="students">
+                <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SoDT" ColumnName="SoDT" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Hinh" ColumnName="Hinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="AssignmentC3Model.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="roles" ColumnName="roles" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="backups">
+            <EntityTypeMapping TypeName="AssignmentC3Model.backup">
+              <MappingFragment StoreEntitySet="backups">
+                <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SoDT" ColumnName="SoDT" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Hinh" ColumnName="Hinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

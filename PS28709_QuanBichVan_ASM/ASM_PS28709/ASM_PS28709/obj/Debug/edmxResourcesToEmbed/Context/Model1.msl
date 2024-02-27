@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AssignmentC3ModelStoreContainer" CdmEntityContainer="AssignmentC3Entities">
+    <EntitySetMapping Name="grades">
+      <EntityTypeMapping TypeName="AssignmentC3Model.grade">
+        <MappingFragment StoreEntitySet="grades">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+          <ScalarProperty Name="TiengAnh" ColumnName="TiengAnh" />
+          <ScalarProperty Name="TinHoc" ColumnName="TinHoc" />
+          <ScalarProperty Name="GDTD" ColumnName="GDTD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="AssignmentC3Model.student">
+        <MappingFragment StoreEntitySet="students">
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SoDT" ColumnName="SoDT" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Hinh" ColumnName="Hinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="AssignmentC3Model.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="roles" ColumnName="roles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="backups">
+      <EntityTypeMapping TypeName="AssignmentC3Model.backup">
+        <MappingFragment StoreEntitySet="backups">
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SoDT" ColumnName="SoDT" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Hinh" ColumnName="Hinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

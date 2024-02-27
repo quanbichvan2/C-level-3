@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AssignmentC3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="grade">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TiengAnh" Type="Double" />
+    <Property Name="TinHoc" Type="Double" />
+    <Property Name="GDTD" Type="Double" />
+    <NavigationProperty Name="student" Relationship="Self.FK__grades__MSSV__3E52440B" FromRole="grades" ToRole="students" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="MSSV" />
+    </Key>
+    <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SoDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Hinh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="grades" Relationship="Self.FK__grades__MSSV__3E52440B" FromRole="students" ToRole="grades" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="roles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="backup">
+    <Key>
+      <PropertyRef Name="MSSV" />
+      <PropertyRef Name="HoTen" />
+    </Key>
+    <Property Name="MSSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SoDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Hinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__grades__MSSV__3E52440B">
+    <End Role="students" Type="Self.student" Multiplicity="0..1" />
+    <End Role="grades" Type="Self.grade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="MSSV" />
+      </Principal>
+      <Dependent Role="grades">
+        <PropertyRef Name="MSSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AssignmentC3Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="grades" EntityType="Self.grade" />
+    <EntitySet Name="students" EntityType="Self.student" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="backups" EntityType="Self.backup" />
+    <AssociationSet Name="FK__grades__MSSV__3E52440B" Association="Self.FK__grades__MSSV__3E52440B">
+      <End Role="students" EntitySet="students" />
+      <End Role="grades" EntitySet="grades" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

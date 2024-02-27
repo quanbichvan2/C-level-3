@@ -1,0 +1,60 @@
+﻿<Window x:Class="lab8_QuanBichVan.bai4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab8_QuanBichVan"
+        mc:Ignorable="d"
+        Title="bai4" Height="450" Width="800">
+    <Grid>
+        <DockPanel Margin="0,0,10,0.5">
+            <Menu DockPanel.Dock="Top" Height="424" Margin="0,0,10,0">
+                <MenuItem Header="File" Click="MenuItem_Click" Width="63" Height="35">
+                    <MenuItem Header="New" InputGestureText="Ctrl +n">
+                        <MenuItem.Icon>
+                            <Image Source="E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab8\lab8.jpg"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Cut" InputGestureText="Ctrl +x">
+                        <MenuItem.Icon>
+                            <Image Source="E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab8\cut.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Copy" InputGestureText="Ctrl +c">
+                        <MenuItem.Icon>
+                            <Image Source="E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab8\coppy.jpg"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Paste" InputGestureText="Ctrl +v">
+                        <MenuItem.Icon>
+                            <Image Source="E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab8\paste.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Undo" InputGestureText="Ctrl +z">
+                        <MenuItem.Icon>
+                            <Image Source="E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab8\Undo.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Redo" InputGestureText="Ctrl +y">
+                        <MenuItem.Icon>
+                            <Image Source="E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab8\redo.jpg"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Window">
+                        <MenuItem Header="Immediate" Click="MenuItemImmediate_Click"/>
+                        <MenuItem Header="CallStack" Click="MenuItemCallStack_Click"/>
+                        <Separator></Separator>
+                        <MenuItem Header="Soluiton Explorer" Style="{StaticResource RadioMenuItemStyle}"/>
+                        <MenuItem Header="Team Explorer" Style="{StaticResource RadioMenuItemStyle}"/>
+                        <MenuItem Header="Sever Explorer" Style="{StaticResource RadioMenuItemStyle}"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Edit" Width="63" Height="35"/>
+                <MenuItem Header="View" Width="63" Height="35"/>
+                <MenuItem Header="Project" Width="63" Height="35"/>
+                <MenuItem Header="Build" Width="63" Height="35"/>
+            </Menu>
+
+        </DockPanel>
+    </Grid>
+</Window>

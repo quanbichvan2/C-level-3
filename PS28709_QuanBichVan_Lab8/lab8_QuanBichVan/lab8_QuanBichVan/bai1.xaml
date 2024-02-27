@@ -1,0 +1,33 @@
+﻿<Window x:Class="lab8_QuanBichVan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab8_QuanBichVan"
+        mc:Ignorable="d"
+        Title="bai1" Height="450" Width="800">
+    <Grid>
+        <Label Margin="10,10,0,0">First Name
+
+        </Label>
+        <TextBox x:Name="txtFirstName" Margin="129,10,469,384.5" Text=""></TextBox>
+        <TextBox x:Name="txtLastName" Margin="588,10,10,384.5" Text=""/>
+        <Label Margin="474,10,234,371.5" Content="Last Name"/>
+        <Label Margin="10,67,0,0" Content="Tower"/>
+        <ComboBox x:Name="cmbTower" Margin="129,67,469,309" SelectedIndex="0" />
+
+        <CheckBox x:Name="chkCaptain" Margin="588,89,25,237.5" >Captain</CheckBox>
+        <Label Margin="10,130,0,0" Content="Member since"/>
+        <DatePicker x:Name="dateMemberSince" Margin="194,138,469,252.5"></DatePicker>
+        <GroupBox Margin="10,175,628,72.5" >
+        </GroupBox>
+        <RadioButton x:Name="radUpToOneYear" Margin="30,222,51,29" Content="Up to 1 year"/>
+        <RadioButton x:Name="radOneToFourYears" Margin="30,291,86,60" Content="1 to 4 years"/>
+        <RadioButton x:Name="radFiveToNineYears" Margin="30,257,25,120" Content="5 to 9 years"/>
+        <RadioButton x:Name="radTenOrMoreYears" Margin="30,189,25,183" Content="10 or more years"/>
+        <RichTextBox Margin="194,189,469,115.5"></RichTextBox>
+        <Button Margin="194,329,469,60" Content="Add" Name="Them" Click="Them_Click" ></Button>
+        <Button Margin="379,329,284,60.5" Content="Clear" x:Name="Xoa" Click="Xoa_Click" />
+        <Button Margin="588,328,75,60" Content="Qua Bài 2" x:Name="Bai2" Click="QuaBai2_Click" />
+    </Grid>
+</Window>

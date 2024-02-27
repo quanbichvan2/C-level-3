@@ -1,0 +1,11 @@
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\obj\Debug\PS28709_QuanBichVan_Lab4.csproj.AssemblyReference.cache
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\obj\Debug\PS28709_QuanBichVan_Lab4.csproj.SuggestedBindingRedirects.cache
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\obj\Debug\PS28709_QuanBichVan_Lab4.Form1.resources
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\obj\Debug\PS28709_QuanBichVan_Lab4.Properties.Resources.resources
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\obj\Debug\PS28709_QuanBichVan_Lab4.csproj.GenerateResource.cache
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\obj\Debug\PS28709_QuanBichVan_Lab4.csproj.CoreCompileInputs.cache
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\bin\Debug\PS28709_QuanBichVan_Lab4.exe.config
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\bin\Debug\PS28709_QuanBichVan_Lab4.exe
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\bin\Debug\PS28709_QuanBichVan_Lab4.pdb
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\obj\Debug\PS28709_QuanBichVan_Lab4.exe
+E:\FPT\C#3\BT\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\PS28709_QuanBichVan_Lab4\obj\Debug\PS28709_QuanBichVan_Lab4.pdb
